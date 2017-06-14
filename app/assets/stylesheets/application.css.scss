@@ -1,0 +1,283 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require bootstrap-datepicker
+ *= require select2
+ *= require select2-bootstrap
+ *= require fonts
+ */
+
+$font-size-base: 13px;
+$navbar-inverse-bg: #3d6b7c;
+$navbar-inverse-link-color: lighten($navbar-inverse-bg, 54%);
+$navbar-inverse-brand-color: lighten($navbar-inverse-bg, 36%);
+
+$grid-float-breakpoint: 992px;
+
+$component-active-bg: $navbar-inverse-brand-color;
+
+$font-family-sans-serif: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$headings-font-weight: 700;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "bootstrap3-switch";
+
+// see https://github.com/twbs/bootstrap/issues/9855
+.modal-open, .modal-open .navbar-fixed-top {
+  margin-right: 0 !important;
+}
+
+.navbar-inverse .navbar-brand {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+body {
+    background: image-url("bg.png") 0 0 repeat;
+    padding-top: 60px;
+    font-weight: 400;
+    & > .container {
+        background-color: #fff;
+        padding: 0 20px 40px 20px;
+        border-radius: 6px 6px 0 0;
+        border: 1px solid #e0e0e0;
+        margin-top: 20px;
+    }
+}
+
+html.turbolinks-progress-bar::before {
+  background-color: darken($navbar-inverse-bg, 15%) !important;
+  height: 5px !important;
+  z-index: 10000; /* Show progress bar above fixed navbar */
+}
+
+.page-header {
+    margin: 10px 0 20px 0;
+    padding-bottom: 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    h1 {
+        margin-top: 20px;
+        font-size: 20px;
+        line-height: 20px;
+        small {
+            font-size: 16px;
+        }
+    }
+    .line {
+        position: relative;
+        bottom: -1px;
+        left: 0;
+        height: 5px;
+        width: 70px;
+        background-color: lighten($navbar-inverse-bg, 1%);
+    }
+    .actions {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+}
+
+.button_in_label {
+    margin-top: -5px;
+    margin-left: 10px
+}
+
+.list-group label {
+    font-weight: normal;
+}
+
+.dl-horizontal.form {
+    dd, dt {  padding: 2px 0; }
+    dd { margin-left: 120px; }
+    dt { width: 110px; color: #555; }
+}
+
+@media (max-width: 992px) {
+    .dl-horizontal.form {
+        dd { margin-left: 110px; }
+        dt {
+            float: left;
+            width: 100px;
+            clear: left;
+            text-align: right;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
+
+.nav-tabs.contrast {
+    border-bottom: 2px solid #428bca;
+
+    li.active > a, li.active > a:hover, li.active > a:focus {
+        background-color: #428bca;
+        color: #fff;
+        border-width: 0 0 1px 0;
+    }
+
+}
+
+.index_count {
+    text-align: right;
+    color: #aaa;
+    span {
+        color: #333;
+        font-weight: bold;
+        &.label {
+          color: #fff;
+        }
+    }
+}
+
+.affix {
+    position: fixed;
+    top: 52px;
+    left: 0px;
+    z-index: 1000;
+    background-color: $navbar-inverse-link-color;
+    border: 1px solid $navbar-inverse-brand-color;
+    padding: 10px 0 7px;
+    width: 100%;
+
+    .pagination {
+        margin: 0 auto;
+    }
+
+}
+
+input.money, .money input {
+    text-align: right;
+}
+
+.well-sm {
+  h4 {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+  .dl-horizontal {
+    margin: 5px;
+  }
+}
+
+.panel-heading {
+  form { display: inline; }
+  input {
+
+    height: 24px;
+    padding: 4px 8px;
+    font-size: 12px;
+    line-height: 1.42857;
+    color: #555555;
+    vertical-align: middle;
+    background-color: white;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+    &:focus {
+      border-color: #66afe9;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: #eeeeee;
+    }
+  }
+}
+
+.modal {
+  .page-header {
+      margin: 0;
+  }
+  h1 {
+      margin-top: 5px;
+  }
+
+  .alert {
+    margin: 15px 0 0 0;
+    padding: 10px;
+  }
+
+  .alert-dismissable { padding-right: 30px;}
+}
+
+.modal-footer {
+  background-color: #f6f6f3;
+  border-radius: 0 0 6px 6px;
+}
+
+.right { text-align: right; }
+.strong {
+  font-weight: bold;
+}
+small { color: #999 }
+
+.link_delete {
+    color: #ccc;
+}
+
+tr:hover {
+    .link_delete  { color: #b94a48; }
+}
+
+table.table {
+    td.date { width: 80px; }
+}
+
+.bottom-actions {
+    border: 1px solid #e0e0e0;
+    border-width: 1px 0 0 0;
+    background-color: #f8f8f8;
+    padding: 20px;
+    margin: 30px -20px -40px -20px;
+    display: block;
+    @include clearfix();
+}
+
+.well .bottom-actions {
+    border-width: 01px;
+    background-color: #f9f9f6;
+    padding: 15px;
+    margin: 30px -20px -20px -20px;
+    display: block;
+    border-radius: 0 0 4px 4px;
+}
+
+.panel .bottom-actions {
+    border-width: 01px;
+    background-color: #f9f9f6;
+    padding: 15px;
+    margin: 20px -16px -20px -16px;
+    display: block;
+    border-radius: 0 0 4px 4px;
+}
+
+.label.label-md {
+  font-size: 90%;
+}
+
+.well hr { border-color: #ccc; }
+
+.text-very-muted { color: #aaa; }
