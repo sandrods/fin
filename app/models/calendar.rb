@@ -38,7 +38,11 @@ class Calendar
   end
 
   def range
-    @range ||= @date.beginning_of_month..@date.end_of_month
+    @range ||= begin
+      ini = @date.beginning_of_month.last_month + 20
+      fim = ini.next_month - 1
+      ini..fim
+    end
   end
 
   def next_cal
