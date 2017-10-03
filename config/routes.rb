@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   resources :contas
   resources :categorias
 
-  resources :registros
+  resources :registros do
+    post :duplicate, on: :member
+  end
   resources :transferencias, controller: 'registros/transferencias'
 
   get 'financeiro/diario'
   get 'financeiro/anual'
 
-  root 'dashboard#index'
+  root 'financeiro#diario'
 
 end
