@@ -6,7 +6,7 @@
 t=`/bin/date +%Y%m%d`
 tt=`/bin/date +%H%M%S`
 
-db='fin'
+db='fin_development'
 
 # Define o destino dos arquivos
 DST="/Users/sandro/Dropbox/pg_bkp/fin"
