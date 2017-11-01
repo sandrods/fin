@@ -12,7 +12,7 @@ class RegistrosController < ApplicationController
       flash[:error] = "Não foi possível salvar registro: #{@registro.errors.full_messages}"
     end
 
-    redirect_to financeiro_diario_path(mes: @registro.data)
+    redirect_to financeiro_diario_path(mes: @registro.month)
   end
 
   def edit
@@ -31,7 +31,7 @@ class RegistrosController < ApplicationController
       flash[:error] = "Não foi possível salvar registro: #{@registro.errors.full_messages}"
     end
 
-    redirect_to financeiro_diario_path(mes: @registro.data)
+    redirect_to financeiro_diario_path(mes: @registro.month)
   end
 
   def destroy
@@ -39,15 +39,15 @@ class RegistrosController < ApplicationController
 
     @registro.destroy!
 
-    redirect_to financeiro_diario_path(mes: @registro.data)
+    redirect_to financeiro_diario_path(mes: @registro.month)
   end
 
   def duplicate
     @registro = Registro.find params[:id]
 
-    @registro.duplicate!
+    new_reg = @registro.duplicate!
 
-    redirect_to financeiro_diario_path(mes: @registro.data)
+    redirect_to financeiro_diario_path(mes: new_reg.month)
   end
 
   private

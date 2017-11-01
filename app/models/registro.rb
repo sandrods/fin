@@ -58,7 +58,12 @@ class Registro < ActiveRecord::Base
     reg.data = self.data + 1.month
     reg.pago = false
 
-    reg.save!
+    reg.tap { |r| r.save! }
+  end
+
+  def month
+    b = data.beginning_of_month
+    (data.day > 20) ? b.next_month : b
   end
 
 private
