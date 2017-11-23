@@ -24,17 +24,11 @@
         <%= f.association :conta, label_method: :nome %>
       </div>
       <div class="col-md-6">
-        <%= f.association :forma, label_method: :nome, label: 'Forma de Pagamento' %>
-      </div>
-    </div>
-
-    <hr/>
-
-    <div class="row">
-      <div class="col-md-6">
         <%= f.association :categoria, collection: Categoria.por_cd(@registro.cd), label_method: :nome %>
       </div>
     </div>
+
+
 
     <div class="row">
       <div class="col-md-6">
